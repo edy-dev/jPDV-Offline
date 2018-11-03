@@ -38,7 +38,7 @@ public class PopUPDialogPresenter {
         this.popUP.setBackground(popUPBackground());
     }
 
-    // Ativando o Listiners de "Botons", "Campos" e outros.
+    // Listiner de "Botons", "Campos" e outros.
     private void myListiners() {
         this.popUP.setOKActionPerformed(new PopUPDialogActionListener.OkActionListener(this));
         this.popUP.setTopBarMousePressed(new PopUPDialogMouseMotionListener.TopBarMouseListener(this));

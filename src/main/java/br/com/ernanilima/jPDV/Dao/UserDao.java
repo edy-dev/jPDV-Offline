@@ -19,7 +19,7 @@ public class UserDao {
     /**
      * Metodo para realizar login de usuario
      * @param mUser
-     * @return se conexao foi bem sucedida ou nao
+     * @return se login foi bem sucedido ou nao
      */
     public boolean userLogin(User mUser) {
         Connection conn = null;

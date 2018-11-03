@@ -4,8 +4,17 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * CLasse de criptografar senhas
+ * @author Ernani Lima
+ */
 public class Encrypt {
 
+    /**
+     * Metodo que criptografa String em sha256
+     * @param password
+     * @return String sha256
+     */
     public static String sha256(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");

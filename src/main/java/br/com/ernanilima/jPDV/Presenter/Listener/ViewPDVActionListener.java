@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 public class ViewPDVActionListener {
 
     /**
-     * Executa o metodo "userLogin" que realiza a validacao de login do usuario
+     * Executa o metodo "userLogin" que realiza a validacao de login do usuario ou do suporte tecnico
      */
     public static class LoginUserActionListener implements ActionListener {
         private final PDVPresenter presenter;

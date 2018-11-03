@@ -16,15 +16,25 @@ import br.com.ernanilima.jPDV.View.ViewPDV;
  */
 public class PDVPresenter {
 
+    // Interface do ViewPDV
     private final IViewPDV viewPDV;
+
+    // Presenter do pop-up de alertas e ok
     private final PopUPDialogPresenter popUPPresenter;
+
+    // Model de usuario
     private final User user;
+
+    // Model do Suporte
     private final Support support;
+
+    // Dao do usuario
     private final UserDao userDao;
 
     private String id;
     private String password;
 
+    // Construtor
     public PDVPresenter() {
         this.viewPDV = new ViewPDV();
         this.popUPPresenter = new PopUPDialogPresenter();
@@ -35,6 +45,7 @@ public class PDVPresenter {
         this.viewPDV.packAndShow();
     }
 
+    // Listiner de "Botons", "Campos" e outros.
     private void myListiners() {
         this.viewPDV.setLoginActionPerformed(new ViewPDVActionListener.LoginUserActionListener(this));
         this.viewPDV.setExitActionPerformed(new ViewPDVActionListener.ExitActionListener(this));
@@ -42,6 +53,9 @@ public class PDVPresenter {
         this.viewPDV.setFieldPasswordKeyPressed(new ViewPDVKeyListener.FieldPassqordKeyListener(this));
     }
 
+    /**
+     * Metodo que realiza a validacao de login do usuario ou do suporte tecnico
+     */
     public void userLogin() {
         this.id = viewPDV.getIdUser();
         this.password = Encrypt.sha256(viewPDV.getPassword());
@@ -70,6 +84,9 @@ public class PDVPresenter {
         }
     }
 
+    /**
+     * Metodo que fecha o sistema do PDV
+     */
     public void exitPDV() {
         System.exit(0);
     }
