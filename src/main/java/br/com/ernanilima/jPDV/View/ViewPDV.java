@@ -1,5 +1,7 @@
 package br.com.ernanilima.jPDV.View;
 
+import com.towel.swing.img.JImagePanel;
+
 import javax.swing.*;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
@@ -126,7 +128,10 @@ public class ViewPDV extends JFrame implements IViewPDV {
         campoNomeOperador = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
+        setUndecorated(true);
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
         painelCardPDV.setLayout(new java.awt.CardLayout());
 
@@ -1182,6 +1187,11 @@ public class ViewPDV extends JFrame implements IViewPDV {
     @Override
     public void setCardPDVLogo(String cardName) {
         // Ainda pendente de implementacao
+    }
+
+    @Override
+    public void setBackgroundLogin(JImagePanel imagePanel) {
+        this.painelLogin.add(imagePanel);
     }
 
     @Override

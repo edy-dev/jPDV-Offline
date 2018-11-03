@@ -9,6 +9,7 @@ import java.io.InputStream;
 public class Backgrounds {
 
     private final InputStream bgDialog = getClass().getResourceAsStream("/backgrounds/bg_dialog.png");
+    private final InputStream bgPDVLogin = getClass().getResourceAsStream("/backgrounds/bg_login_jpdv.png");
 
     public Backgrounds() {}
 
@@ -17,5 +18,12 @@ public class Backgrounds {
      */
     public InputStream getBgDialog() {
         return bgDialog;
+    }
+
+    /**
+     * @return InputStream da imagem de Background da tela de login do PDV
+     */
+    public InputStream getBgPDVLogin() {
+        return bgPDVLogin;
     }
 }

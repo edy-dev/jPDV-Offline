@@ -1,5 +1,7 @@
 package br.com.ernanilima.jPDV.View;
 
+import com.towel.swing.img.JImagePanel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 
@@ -36,6 +38,12 @@ public interface IViewPDV {
     public void setCardPDVVendas(String cardName);
     public void setCardPDVValores(String cardName);
     public void setCardPDVLogo(String cardName);
+
+    /**
+     * Backgrounds
+     */
+    // Seta a Imagem de background na tela de login usando o projeto towel
+    public void setBackgroundLogin(JImagePanel imagePanel);
 
     public void packAndShow();
 }

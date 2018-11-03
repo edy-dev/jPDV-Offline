@@ -1,6 +1,7 @@
 package br.com.ernanilima.jPDV.Presenter;
 
 import br.com.ernanilima.jPDV.Dao.UserDao;
+import br.com.ernanilima.jPDV.Model.Backgrounds;
 import br.com.ernanilima.jPDV.Model.Support;
 import br.com.ernanilima.jPDV.Model.User;
 import br.com.ernanilima.jPDV.Presenter.Listener.ViewPDVActionListener;
@@ -9,6 +10,12 @@ import br.com.ernanilima.jPDV.Util.Encrypt;
 import br.com.ernanilima.jPDV.View.Enum.CardLayoutPDV;
 import br.com.ernanilima.jPDV.View.IViewPDV;
 import br.com.ernanilima.jPDV.View.ViewPDV;
+import com.towel.swing.img.JImagePanel;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  *
@@ -28,6 +35,9 @@ public class PDVPresenter {
     // Model do Suporte
     private final Support support;
 
+    // Model de Backgrounds do sistema
+    private final Backgrounds bg;
+
     // Dao do usuario
     private final UserDao userDao;
 
@@ -40,8 +50,10 @@ public class PDVPresenter {
         this.popUPPresenter = new PopUPDialogPresenter();
         this.user = new User();
         this.support = new Support();
+        this.bg = new Backgrounds();
         this.userDao = new UserDao();
         this.myListiners();
+        this.viewPDV.setBackgroundLogin(backgroundLogin());
         this.viewPDV.packAndShow();
     }
 
@@ -51,6 +63,22 @@ public class PDVPresenter {
         this.viewPDV.setExitActionPerformed(new ViewPDVActionListener.ExitActionListener(this));
         this.viewPDV.setFieldIDKeyPressed(new ViewPDVKeyListener.FieldIDKeyListener(viewPDV));
         this.viewPDV.setFieldPasswordKeyPressed(new ViewPDVKeyListener.FieldPassqordKeyListener(this));
+    }
+
+    // Define o background da tela de login usando o projeto towel
+    private JImagePanel backgroundLogin() {
+        try {
+            BufferedImage imgBuffer = ImageIO.read(bg.getBgPDVLogin());
+            JImagePanel background = new JImagePanel(imgBuffer);
+            Rectangle rect = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+            background.setSize((int) rect.getWidth(), (int) rect.getHeight());
+            background.setFillType(JImagePanel.FillType.CENTER);
+            return background;
+        } catch (IOException e) {
+            System.out.println("ERRO COM A IMAGEM DE BACKGROUND DA TELA DE LOGIN: " + e);
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
