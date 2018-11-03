@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="towel-v1.2.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Documents/NetBeansProjects/jGourmet/UTIL/uso-final/towel-v1.2.2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/towel-v1.2.2.zip!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
